@@ -24,7 +24,9 @@ public class BSConsumerServiceImpl implements BSConsumerService{
     public void saveInitialMetadataFromBS(BSPaymentRequest bsPaymentRequest) {
         Envelope envelope = bsPaymentRequestMapper.mapEnvelopeFromBSPaymentRequest(bsPaymentRequest);
 
+        envelope = bulkScanningUtils.returnExistingEnvelope(envelope);
         bulkScanningUtils.handlePaymentStatus(envelope);
+
         bulkScanningUtils.insertStatusHistoryAudit(envelope);
         envelopeRepository.save(envelope);
     }

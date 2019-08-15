@@ -29,10 +29,10 @@ public class BSPaymentRequestMapper {
          List<EnvelopeCase> envelopeCaseList = new ArrayList<>();
          EnvelopeCase envelopeCase = null;
 
-         if (StringUtils.equalsIgnoreCase(bsPaymentRequest.getIsExceptionRecord(),"true")) {
+         if (StringUtils.equalsIgnoreCase(bsPaymentRequest.getIsExceptionRecord(),"false")) {
              //If case reference present update ccd reference field
              envelopeCase = EnvelopeCase.caseWith().ccdReference(bsPaymentRequest.getCcdCaseNumber()).build();
-         } else if (StringUtils.equalsIgnoreCase(bsPaymentRequest.getIsExceptionRecord(),"false")) {
+         } else if (StringUtils.equalsIgnoreCase(bsPaymentRequest.getIsExceptionRecord(),"true")) {
              //If exception reference is present update exception reference field
              envelopeCase = EnvelopeCase.caseWith().exceptionRecordReference(bsPaymentRequest.getCcdCaseNumber()).build();
          }

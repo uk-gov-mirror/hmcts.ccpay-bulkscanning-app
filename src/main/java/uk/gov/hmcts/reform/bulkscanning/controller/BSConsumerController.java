@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uk.gov.hmcts.reform.bulkscanning.exception.BulkScanningConsumerException;
+import uk.gov.hmcts.reform.bulkscanning.exception.BSCaseAlreadyExistsException;
 import uk.gov.hmcts.reform.bulkscanning.model.dto.BSPaymentRequest;
 import uk.gov.hmcts.reform.bulkscanning.service.BSConsumerService;
+
+import javax.validation.Valid;
 
 @RestController
 @Api(tags = {"BulkScanning"})
@@ -26,14 +28,10 @@ public class BSConsumerController {
         @ApiResponse(code = 403, message = "Failed authorization")
     })
     @PostMapping("/bulk-scan-payment")
-    public ResponseEntity consumeInitialMetaDataBulkScanning (@RequestBody BSPaymentRequest bsPaymentRequest) {
+    public ResponseEntity consumeInitialMetaDataBulkScanning (@Valid @RequestBody BSPaymentRequest bsPaymentRequest) {
         bsConsumerService.saveInitialMetadataFromBS(bsPaymentRequest);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(BulkScanningConsumerException.class)
-    public String notFound(BulkScanningConsumerException ex) {
-        return ex.getMessage();
-    }
+
 }
