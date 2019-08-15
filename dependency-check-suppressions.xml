@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.1.xsd">
+    <suppress>
+    <notes><![CDATA[
+supress these for now as fix not available   ]]></notes>
+    <cve>CVE-2019-14379</cve>
+    <cve>CVE-2019-14439</cve>
+      <cve>CVE-2018-10237</cve>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+temporarily supressing it as we are not impacted by it.   ]]></notes>
+    <cve>CVE-2016-6497</cve>
+  </suppress>
+</suppressions>

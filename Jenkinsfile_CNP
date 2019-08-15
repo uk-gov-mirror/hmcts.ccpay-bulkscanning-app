@@ -1,0 +1,24 @@
+#!groovy
+
+properties(
+    [[$class: 'GithubProjectProperty', projectUrlStr: 'https://github.com/hmcts/ccpay-bulkscanning-app.git'],
+     pipelineTriggers([[$class: 'GitHubPushTrigger']])]
+)
+
+@Library('Infrastructure')
+
+def type = "java"
+
+def product = "ccpay"
+
+def app = "bulkscanning-api"
+
+
+withPipeline(type, product, app) {
+    setVaultName('ccpay')
+    //loadVaultSecrets(secrets)
+    //enableDbMigration()
+    enableDockerBuild()
+    installCharts()
+    enableSlackNotifications('#cc-payments-tech')
+}
