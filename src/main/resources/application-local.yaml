@@ -44,3 +44,13 @@ trusted:
   s2s:
     service:
       names: bulk_scan
+auth:
+  provider:
+    service:
+      client:
+        baseUrl: http://localhost:8002
+
+
+  idam:
+    client:
+      baseUrl: http://localhost:8001
