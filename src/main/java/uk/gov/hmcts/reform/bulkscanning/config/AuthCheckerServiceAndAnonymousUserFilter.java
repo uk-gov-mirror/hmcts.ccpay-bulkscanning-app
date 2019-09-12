@@ -22,7 +22,7 @@ public class AuthCheckerServiceAndAnonymousUserFilter extends AbstractPreAuthent
 
     private final RequestAuthorizer<Service> serviceRequestAuthorizer;
     private final RequestAuthorizer<User> userRequestAuthorizer;
-    private static final Set anonymousRole = new HashSet<String>(Arrays.asList("ROLE_ANONYMOUS"));
+    private static final Set<String> anonymousRole = new HashSet<String>(Arrays.asList("ROLE_ANONYMOUS"));
 
 
     public AuthCheckerServiceAndAnonymousUserFilter(RequestAuthorizer<Service> serviceRequestAuthorizer,

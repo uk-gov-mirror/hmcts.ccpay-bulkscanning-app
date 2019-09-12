@@ -43,14 +43,12 @@ spring:
 trusted:
   s2s:
     service:
-      names: bulk_scan
+      names: ccpay_bubble
 auth:
   provider:
     service:
       client:
-        baseUrl: http://localhost:8002
-
-
+        baseUrl: http://localhost:23443
   idam:
     client:
-      baseUrl: http://localhost:8001
+      baseUrl: http://localhost:23443
