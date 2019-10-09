@@ -176,4 +176,9 @@ temporarily supressing it as we are not impacted by it.   ]]></notes>
     <cve>CVE-2019-16370</cve>
     <cve>CVE-2019-16869</cve>
   </suppress>
+  <suppress>
+    <notes> Vulnerabilities for Jackson Databind jar, currently we don't have solution </notes>
+    <cve>CVE-2019-16942</cve>
+    <cve>CVE-2019-16943</cve>
+  </suppress>
 </suppressions>
