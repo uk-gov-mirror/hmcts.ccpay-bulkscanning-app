@@ -110,7 +110,7 @@ public class PaymentControllerFnTest {
     public void testBulkScanningPaymentRequestFirst() throws Exception{
         String dcn[] = {"987211111111111111111"};
         BulkScanPaymentRequest bulkScanPaymentRequest = createBulkScanPaymentRequest("1111222233335555"
-            ,dcn,"AA08", true);
+            , dcn, "AA08", true);
 
         //Post request
         ResultActions resultActions = restActions.post("/bulk-scan-payments", bulkScanPaymentRequest);
@@ -133,8 +133,10 @@ public class PaymentControllerFnTest {
         //DCN Not exists Request
         ResultActions patchDCNNotExists = restActions.patch("/bulk-scan-payments/987411111111111111111/status/PROCESSED");
 
-        Assert.assertTrue(StringUtils.containsIgnoreCase(patchDCNNotExists.andReturn().getResponse().getContentAsString(),
-            DCN_NOT_EXISTS));
+        Assert.assertTrue(StringUtils.containsIgnoreCase(
+            patchDCNNotExists.andReturn().getResponse().getContentAsString(),
+            DCN_NOT_EXISTS
+        ));
     }
 
     @Test
@@ -283,7 +285,7 @@ public class PaymentControllerFnTest {
         //Post request
         restActions.post("/bulk-scan-payments", bulkScanPaymentRequest);
 
-       //Complete payment for DCN dcn1
+        //Complete payment for DCN dcn1
         EnvelopePayment payment = paymentRepository.findByDcnReference(dcn1).get();
         Assert.assertEquals(COMPLETE.toString(), payment.getPaymentStatus());
 

@@ -73,7 +73,7 @@ public class BulkScanValidatorTest {
 
     @Test()
     @Transactional
-    public void testFieldLevelValidation() throws Exception{
+    public void testFieldLevelValidation() throws Exception {
         String dcn[] = {""};
         BulkScanPaymentRequest bulkScanPaymentRequest = createBulkScanPaymentRequest(null
             , null, "AA08", false);
@@ -88,7 +88,7 @@ public class BulkScanValidatorTest {
 
     @Test()
     @Transactional
-    public void testRequestValidation_AdditionalFields() throws Exception{
+    public void testRequestValidation_AdditionalFields() throws Exception {
 
 
         ResultActions resultActions = restActions.post("/bulk-scan-payment/", new ExelaPayment(BigDecimal.ONE,
