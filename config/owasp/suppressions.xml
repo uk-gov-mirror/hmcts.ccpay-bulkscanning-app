@@ -83,4 +83,7 @@
     <cve>CVE-2019-20444</cve>
     <cve>CVE-2019-20445</cve>
   </suppress>
+  <suppress>
+    <cve>CVE-2020-9488</cve>
+  </suppress>
 </suppressions>
