@@ -64,7 +64,7 @@ azure:
     instrumentation-key: ${APPINSIGHTS_INSTRUMENTATIONKEY:dummy}
 idam:
   api:
-    url: ${IDAM_API_URL:http://localhost:5000}
+    url: ${AUTH_IDAM_CLIENT_BASEURL}
   s2s-authorised:
     services: ccpay_bubble, cmc, bulk_scan_payment_processor, api_gw, probate_frontend, divorce_frontend, ccd_gw,internal
   s2s-auth:
