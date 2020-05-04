@@ -54,7 +54,7 @@ test:
 
 idam:
   api:
-    url: ${AUTH_IDAM_CLIENT_BASEURL}
+    url: ${IDAM_API_URL:https://idam-api.aat.platform.hmcts.net}
 
 generated:
   user:

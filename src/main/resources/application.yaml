@@ -92,7 +92,7 @@ azure:
     instrumentation-key: ${APPINSIGHTS_INSTRUMENTATIONKEY:dummy}
 idam:
   api:
-    url: ${AUTH_IDAM_CLIENT_BASEURL}
+    url: ${IDAM_API_URL:https://idam-api.demo.platform.hmcts.net}
   s2s-authorised:
     services: ${S2S_AUTHORISED_SERVICES}
   s2s-auth:
