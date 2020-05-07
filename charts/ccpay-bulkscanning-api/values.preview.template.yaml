@@ -3,11 +3,18 @@ java:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
   environment:
-    SPRING_LIQUIBASE_ENABLED: true
-    REFORM_SERVICE_NAME: ccpay-bulkscanning
-    REFORM_TEAM: ccpay
-    AUTH_PROVIDER_SERVICE_CLIENT_BASEURL: "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal"
-    AUTH_IDAM_CLIENT_BASEURL: "https://idam-api.aat.platform.hmcts.net"
+    POSTGRES_HOST: "{{ .Release.Name }}-postgresql"
+    POSTGRES_NAME: "{{ .Values.postgresql.postgresqlDatabase}}"
+    POSTGRES_USERNAME: "{{ .Values.postgresql.postgresqlUsername}}"
+    POSTGRES_PASSWORD: "{{ .Values.postgresql.postgresqlPassword}}"
+    POSTGRES_CONNECTION_OPTIONS: "?sslmode=allow"
 
-postgresql:
-  enabled: true
+    LOGBACK_REQUIRE_ALERT_LEVEL: 'false'
+    LOGBACK_REQUIRE_ERROR_CODE: 'false'
+    SPRING_LIQUIBASE_ENABLED: true
+    SPRING_CLOUD_PROPERTIESVOLUME_ENABLED: false
+    OIDC_ISSUER: https://forgerock-am.service.core-compute-idam-aat2.internal:8443/openam/oauth2/hmcts
+    OIDC_CLIENT_SECRET: NVYEC2X7XFSRENTU
+    OIDC_S2S_SECRET: G5XTFNBUW4P6ZP4F
+  postgresql:
+    enabled: true

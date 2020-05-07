@@ -18,14 +18,8 @@ variable "env" {
   type = "string"
 }
 
-variable "ilbIp" {}
-
 variable "subscription" {
   type    = "string"
-}
-
-variable "capacity" {
-  default = "1"
 }
 
 variable "common_tags" {
@@ -40,10 +34,6 @@ variable "database_name" {
 variable "postgresql_user" {
   type    = "string"
   default = "bspayment"
-}
-
-variable "idam_api_url" {
-  default = "http://betaDevBccidamAppLB.reform.hmcts.net"
 }
 
 # thumbprint of the SSL certificate for API gateway tests
