@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
   <suppress>
-    <notes><![CDATA[we do not use Spring Method Security, so this does not affect us. see https://pivotal.io/security/cve-2018-1258]]></notes>
+    <notes>
+      <![CDATA[we do not use Spring Method Security, so this does not affect us. see https://pivotal.io/security/cve-2018-1258]]></notes>
     <cve>CVE-2018-1258</cve>
   </suppress>
   <suppress>
@@ -20,7 +21,8 @@
     <cve>CVE-2016-6497</cve>
   </suppress>
   <suppress>
-    <notes><![CDATA[temporarily supressing it as we are not impacted by it. Caused by spring-security-test-5.0.4.RELEASE.jar]]></notes>
+    <notes>
+      <![CDATA[temporarily supressing it as we are not impacted by it. Caused by spring-security-test-5.0.4.RELEASE.jar]]></notes>
     <cve>CVE-2019-3795</cve>
   </suppress>
   <suppress>
@@ -79,7 +81,8 @@
     <cve>CVE-2016-5394</cve>
   </suppress>
   <suppress>
-    <notes><![CDATA[temporarily suppressing it as we are not impacted by it. Caused by applicationinsights-core-2.3.1.jar/META-INF/maven/io.netty/netty-common/pom.xml]]></notes>
+    <notes>
+      <![CDATA[temporarily suppressing it as we are not impacted by it. Caused by applicationinsights-core-2.3.1.jar/META-INF/maven/io.netty/netty-common/pom.xml]]></notes>
     <cve>CVE-2019-20444</cve>
     <cve>CVE-2019-20445</cve>
   </suppress>
@@ -92,5 +95,8 @@
   <suppress>
     <cve>CVE-2020-5408</cve>
     <cve>CVE-2020-5407</cve>
+  </suppress>
+  <suppress>
+    <cve>CVE-2020-9484</cve>
   </suppress>
 </suppressions>
