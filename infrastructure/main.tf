@@ -35,35 +35,49 @@ module "ccpay-bulkscanning-payment-database" {
   postgresql_version = "${var.postgresql_version}"
 }
 
+module "ccpay-bulkscanning-payment-database-v11" {
+  source = "git@github.com:hmcts/cnp-module-postgres?ref=master"
+  product = "${var.product}-${var.component}-postgres-db-v11"
+  location = "${var.location_app}"
+  subscription = "${var.subscription}"
+  env = "${var.env}"
+  postgresql_user = "${var.postgresql_user}"
+  database_name = "${var.database_name}"
+  sku_name = "GP_Gen5_2"
+  sku_tier = "GeneralPurpose"
+  common_tags = "${var.common_tags}"
+  postgresql_version = "${var.postgresql_version}"
+}
+
 # Populate Vault with DB info
 
 resource "azurerm_key_vault_secret" "POSTGRES-USER" {
   name      = "${var.component}-POSTGRES-USER"
-  value     = "${module.ccpay-bulkscanning-payment-database.user_name}"
+  value     = "${module.ccpay-bulkscanning-payment-database-v11.user_name}"
   key_vault_id = "${data.azurerm_key_vault.payment_key_vault.id}"
 }
 
 resource "azurerm_key_vault_secret" "POSTGRES-PASS" {
   name      = "${var.component}-POSTGRES-PASS"
-  value     = "${module.ccpay-bulkscanning-payment-database.postgresql_password}"
+  value     = "${module.ccpay-bulkscanning-payment-database-v11.postgresql_password}"
   key_vault_id = "${data.azurerm_key_vault.payment_key_vault.id}"
 }
 
 resource "azurerm_key_vault_secret" "POSTGRES_HOST" {
   name      = "${var.component}-POSTGRES-HOST"
-  value     = "${module.ccpay-bulkscanning-payment-database.host_name}"
+  value     = "${module.ccpay-bulkscanning-payment-database-v11.host_name}"
   key_vault_id = "${data.azurerm_key_vault.payment_key_vault.id}"
 }
 
 resource "azurerm_key_vault_secret" "POSTGRES_PORT" {
   name      = "${var.component}-POSTGRES-PORT"
-  value     = "${module.ccpay-bulkscanning-payment-database.postgresql_listen_port}"
+  value     = "${module.ccpay-bulkscanning-payment-database-v11.postgresql_listen_port}"
   key_vault_id = "${data.azurerm_key_vault.payment_key_vault.id}"
 }
 
 resource "azurerm_key_vault_secret" "POSTGRES_DATABASE" {
   name      = "${var.component}-POSTGRES-DATABASE"
-  value     = "${module.ccpay-bulkscanning-payment-database.postgresql_database}"
+  value     = "${module.ccpay-bulkscanning-payment-database-v11.postgresql_database}"
   key_vault_id = "${data.azurerm_key_vault.payment_key_vault.id}"
 }
 
