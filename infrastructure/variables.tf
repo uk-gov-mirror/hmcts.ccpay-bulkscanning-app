@@ -1,43 +1,47 @@
 variable "product" {
-  type    = "string"
+  type    = string
   default = "ccpay"
 }
 
 variable "component" {
-  type    = "string"
+  type    = string
   default = "bulkscanning-api"
 
 }
 
 variable "location_app" {
-  type    = "string"
+  type    = string
   default = "UK South"
 }
 
 variable "env" {
-  type = "string"
+  type = string
 }
 
 variable "subscription" {
-  type    = "string"
+  type    = string
 }
 
 variable "common_tags" {
-  type = "map"
+  type = map(string)
 }
 
 variable "database_name" {
-  type    = "string"
+  type    = string
   default = "bspayment"
 }
 
 variable "postgresql_user" {
-  type    = "string"
+  type    = string
   default = "bspayment"
+}
+
+variable "postgresql_version" {
+  default = "11"
 }
 
 # thumbprint of the SSL certificate for API gateway tests
 variable bulkscanning_api_gateway_certificate_thumbprints {
-  type = "list"
+  type = list(string)
   default = []
 }
