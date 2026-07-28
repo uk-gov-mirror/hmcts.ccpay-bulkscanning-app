@@ -195,7 +195,7 @@ dependencyManagement {
 def versions = [
   apachePoi         : '5.3.0',
   appinsights       : '3.7.4',
-  hmctsLogging      : '6.1.9',
+  hmctsLogging      : '8.0.0',
   log4j             : '2.24.1',
   lombok            : '1.18.34',
   springBoot        : springBoot.class.package.implementationVersion,
