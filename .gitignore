@@ -1,5 +1,4 @@
 .gradle
-/.fortify/
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 src/main/resources/application-local.yaml

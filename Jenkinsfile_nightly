@@ -42,7 +42,6 @@ withNightlyPipeline("java", product, component) {
     loadVaultSecrets(secrets)
     enableSecurityScan()
     enableMutationTest()
-    env.FORTIFY_SCAN_RUNNER = 'repo'
     enableFortifyScan()
     enableFullFunctionalTest()
 

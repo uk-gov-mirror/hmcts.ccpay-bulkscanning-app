@@ -311,27 +311,9 @@ test {
   }
 }
 
-def fortifyScanSourceDir = file("${rootDir}/.fortify/source")
-
-task prepareFortifyScanSource(type: Copy) {
-  from(rootDir) {
-    exclude '.git/**'
-    exclude '.gradle/**'
-    exclude '.fortify/**'
-    exclude 'build/**'
-    exclude 'target/**'
-    exclude 'Fortify Scan/**'
-    exclude 'src/main/resources/application-local.yaml'
-    exclude 'infrastructure/template/cft-api-policy-oauth2.xml'
-  }
-  into fortifyScanSourceDir
-}
-
 task fortifyScan(type: JavaExec)  {
-  dependsOn prepareFortifyScanSource
   mainClass = "uk.gov.hmcts.fortifyclient.FortifyClientMainApp"
   classpath += sourceSets.test.runtimeClasspath
-  workingDir = fortifyScanSourceDir
   jvmArgs = ['--add-opens=java.base/java.lang.reflect=ALL-UNNAMED']
 }
 
